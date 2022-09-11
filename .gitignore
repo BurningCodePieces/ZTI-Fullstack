@@ -1,0 +1,56 @@
+ZTI-Backend/HELP.md
+ZTI-Backend/target/
+ZTI-Backend/!.mvn/wrapper/maven-wrapper.jar
+ZTI-Backend/!**/src/main/**/target/
+ZTI-Backend/!**/src/test/**/target/
+
+### STS ###
+ZTI-Backend/.apt_generated
+ZTI-Backend/.classpath
+ZTI-Backend/.factorypath
+ZTI-Backend/.project
+ZTI-Backend/.settings
+ZTI-Backend/.springBeans
+ZTI-Backend/.sts4-cache
+
+### IntelliJ IDEA ###
+ZTI-Backend/.idea
+ZTI-Backend/*.iws
+ZTI-Backend/*.iml
+ZTI-Backend/*.ipr
+
+### NetBeans ###
+ZTI-Backend/nbproject/private/
+ZTI-Backend/nbbuild/
+ZTI-Backend/dist/
+ZTI-Backend/nbdist/
+ZTI-Backend/.nb-gradle/
+ZTI-Backend/build/
+ZTI-Backend/!**/src/main/**/build/
+ZTI-Backend/!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+
+# dependencies
+ZTI-Frontend/node_modules
+ZTI-Frontend/.pnp
+ZTI-Frontend/.pnp.js
+
+# testing
+ZTI-Frontend/coverage
+
+# production
+ZTI-Frontend/build
+
+# misc
+ZTI-Frontend/.DS_Store
+ZTI-Frontend/.env.local
+ZTI-Frontend/.env.development.local
+ZTI-Frontend/.env.test.local
+ZTI-Frontend/.env.production.local
+
+ZTI-Frontend/npm-debug.log*
+ZTI-Frontend/yarn-debug.log*
+ZTI-Frontend/yarn-error.log*
