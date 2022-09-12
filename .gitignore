@@ -1,5 +1,10 @@
 ZTI-Backend/HELP.md
-ZTI-Backend/target/
+ZTI-Backend/target/**/**.class
+ZTI-Backend/target/**/**.properties
+ZTI-Backend/target/**/**.lst
+ZTI-Backend/target/**/**.txt
+ZTI-Backend/target/**/**.xml
+
 ZTI-Backend/!.mvn/wrapper/maven-wrapper.jar
 ZTI-Backend/!**/src/main/**/target/
 ZTI-Backend/!**/src/test/**/target/
