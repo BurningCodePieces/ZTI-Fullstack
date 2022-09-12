@@ -7,6 +7,8 @@ Projekt można uruchomić korzystając z narzędzia docker. W celu otworzenia pr
 
 git clone https://github.com/BurningCodePieces/ZTI-Fullstack.git
 
+cd ZTI-Fullstack
+
 docker-compose up --build
 
 Czekamy, aż backend i frontend zostaną uruchomione i wchodzimy na stronę:
