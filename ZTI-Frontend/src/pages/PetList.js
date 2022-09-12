@@ -51,7 +51,7 @@ export class PetList extends Component {
                 <div style={{ textAlign: "center", margin: "auto", marginTop: "60px", marginBottom: "50px" }}>
                     <Row xs={1} md={1} l={2} xxl={3} className="g-4">
                         {this.props.pets.map(pet => {
-                            if ((this.state.p == "ALL" || this.state.p == "CAT" && pet.petType == "CAT" || this.state.p == "DOG" && pet.petType == "DOG") && this.props.match.params.id == pet.shelterId || this.props.match.params.id == null) return (
+                            if ((this.state.p == "ALL" || this.state.p == "CAT" && pet.petType == "CAT" || this.state.p == "DOG" && pet.petType == "DOG") && (this.props.match.params.id == pet.shelterId || this.props.match.params.id == null)) return (
                                 <Col>
                                     <Card style={{ width: '33rem', textAlign: "center", margin: "auto" }}>
                                         <Card.Img variant="top" src={pet.picture} />
