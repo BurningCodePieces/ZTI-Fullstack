@@ -22,8 +22,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
+import javax.validation.ConstraintViolationException;
 import javax.xml.bind.ValidationException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -63,7 +66,7 @@ public class DonateServiceImpl implements DonateService {
         User userEntity = user.get();
         Pet petEntity = pet.get();
         if(donateDto.getMoney() > userEntity.getMoney()){
-            throw new ValidationException("Niewystarczająco pieniędzy na koncie.");
+            throw new NotFoundException("Not enough money on account");
         }
 
         Optional<Donate> existingDonate = donateRepository.findByPetIdAndUserId(petEntity.getId(), userEntity.getId());

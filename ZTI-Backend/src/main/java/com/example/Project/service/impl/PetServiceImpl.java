@@ -1,7 +1,9 @@
 package com.example.Project.service.impl;
 
+import com.example.Project.database.entity.Donate;
 import com.example.Project.database.entity.Pet;
 import com.example.Project.database.entity.Shelter;
+import com.example.Project.database.repository.DonateRepository;
 import com.example.Project.database.repository.PetRepository;
 import com.example.Project.dto.IDDto;
 import com.example.Project.dto.PetDto;
@@ -14,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -26,6 +29,9 @@ public class PetServiceImpl implements PetService {
 
     @Autowired
     private PetMapper petMapper;
+
+    @Autowired
+    private DonateRepository donateRepository;
 
     public ResponseEntity<PetDto> addPet(PetDto petDto) throws IOException {
         Pet pet = petRepository.save(petMapper.map(petDto));
@@ -48,8 +54,13 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
+    @Transactional
     public void deletePet(Long id) {
-        petRepository.deleteById(id);
+        Optional<Pet> pet = petRepository.findById(id);
+        if(pet.isPresent()){
+            donateRepository.deleteByPetId(id);
+            petRepository.deleteById(id);
+        }
     }
 
 

@@ -116,7 +116,7 @@ export const signup = (email, password, re_password) => async dispatch => {
             payload: res.data
         })
         dispatch({ type: LOADING_INVISIBLE })
-        dispatch(createMessage({ signed_up_successfully: "You have been successfully signed up." }))
+        dispatch(createMessage({ signed_up_successfully: "Zarejestrowano." }))
     } catch (err) {
         dispatch({
             type: SIGNUP_FAIL,
@@ -150,7 +150,7 @@ export const login = (email, password) => async dispatch => {
         })
         dispatch({ type: LOADING_INVISIBLE })
         dispatch(load_user());
-        dispatch(createMessage({ logged_in_successfully: "You are now logged in." }))
+        dispatch(createMessage({ logged_in_successfully: "Logowanie prawidłowe." }))
     } catch (err) {
         dispatch({
             type: LOGIN_FAIL,
@@ -171,7 +171,7 @@ export const logout = () => dispatch => {
     dispatch({
         type: LOGOUT
     });
-    dispatch(createMessage({ logged_out: "You have been logged out." }))
+    dispatch(createMessage({ logged_out: "Wylogowano." }))
     dispatch({ type: LOADING_INVISIBLE })
 };
 

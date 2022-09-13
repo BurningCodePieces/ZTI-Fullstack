@@ -54,7 +54,7 @@ public class DonateTest {
         DonateDto donateDto = DonateDto.builder().petId(1L).userId(1L).money(15.50).build();
         Mockito.when(userRepository.findById(1L)).thenReturn(Optional.empty());
         Assertions.assertThatThrownBy(() -> donateService.addDonate(donateDto))
-                .isInstanceOf(NotFoundException.class);
+                .isInstanceOf(NotFoundException.class).hasMessage("User with given id not found");
     }
 
     @Test
@@ -63,7 +63,7 @@ public class DonateTest {
         Mockito.when(userRepository.findById(1L)).thenReturn(Optional.of(new User()));
         Mockito.when(petRepository.findById(1L)).thenReturn(Optional.empty());
         Assertions.assertThatThrownBy(() -> donateService.addDonate(donateDto))
-                .isInstanceOf(NotFoundException.class);
+                .isInstanceOf(NotFoundException.class).hasMessage("Pet with given id not found");
     }
 
     @Test
@@ -72,19 +72,13 @@ public class DonateTest {
         Mockito.when(userRepository.findById(1L)).thenReturn(Optional.of(new User(1L, 10.00, UserRole.STANDARD, "Rys", "password")));
         Mockito.when(petRepository.findById(1L)).thenReturn(Optional.of(new Pet()));
         Assertions.assertThatThrownBy(() -> donateService.addDonate(donateDto))
-                .isInstanceOf(ValidationException.class);
+                .isInstanceOf(NotFoundException.class).hasMessage("Not enough money on account");
     }
-
     @Test
     public void shouldAddDonateWhenUserExistsAndPetExistsAndEnoughMoneyOnAccount() throws IOException, ValidationException {
         DonateDto donateDto = DonateDto.builder().petId(1L).userId(1L).money(15.50).build();
         User user = new User(1L, 20.00, UserRole.STANDARD, "Rys", "password");
-        Pet pet = new Pet(":)",
-               1L,
-                PetType.CAT,
-                1,
-                "",
-                null);
+        Pet pet = new Pet(":)", 1L, PetType.CAT, 1, "", null);
         Donate donate = new Donate(null, user, pet, donateDto.getMoney());
         Mockito.when(userRepository.findById(1L)).thenReturn(Optional.of(user));
         Mockito.when(userRepository.getById(1L)).thenReturn(user);

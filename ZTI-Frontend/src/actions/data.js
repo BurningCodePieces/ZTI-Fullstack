@@ -171,6 +171,7 @@ export const saveDonate = (petId, userId, money) => async dispatch => {
                 dispatch(createMessage({ no_server_response: "We are sorry. Server did not return any message. Try again later" }))
 
             }
+            console.log(err.response.data)
             dispatch(createMessage({ structure_status_unchanged: "Nie udało się wysłać donejta. Odpowiedź serwera: "+err.response.data.message }))
             dispatch({ type: LOADING_INVISIBLE })
         }

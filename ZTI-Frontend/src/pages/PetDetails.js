@@ -132,7 +132,7 @@ const PetDetails = ({ isAuthenticated, loading, getAllShelters, donates, saveDon
                     </div>
                 </div> : <></>}
                 <div className="text-center mt-5">
-                {isAuthenticated ? (user.userRole == "ADMIN" ? (<span><button className="m-3 btn btn-danger" onClick={() => { if (window.confirm('Czy jesteś pewny, że chcesz usunąć tego zwierzaka? Ta operacja jest nieodrwacalna!')) deletePet(pet.id) }}>USUŃ ZWIERZAKA</button></span>) : "") : ""}
+                {(isAuthenticated && user) ? (user.userRole == "ADMIN" ? (<span><button className="m-3 btn btn-danger" onClick={() => { if (window.confirm('Czy jesteś pewny, że chcesz usunąć tego zwierzaka? Ta operacja jest nieodrwacalna!')) deletePet(pet.id) }}>USUŃ ZWIERZAKA</button></span>) : "") : ""}
                 </div>
                 <br />
                 <br />

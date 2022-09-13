@@ -2,6 +2,8 @@ package com.example.Project.database.entity;
 
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 

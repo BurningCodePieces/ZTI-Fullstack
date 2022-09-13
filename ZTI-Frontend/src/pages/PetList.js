@@ -49,11 +49,11 @@ export class PetList extends Component {
                     <Button variant="outline-light" className="mx-1 p-3 px-5" onClick={() => { this.state.p = "DOG" }}><h1>Tylko pieski</h1></Button>
                 </div>
                 <div style={{ textAlign: "center", margin: "auto", marginTop: "60px", marginBottom: "50px" }}>
-                    <Row xs={1} md={1} l={2} xxl={3} className="g-4">
+                    <Row xs={1} md={3} l={3} xxl={3} className="g-4">
                         {this.props.pets.map(pet => {
                             if ((this.state.p == "ALL" || this.state.p == "CAT" && pet.petType == "CAT" || this.state.p == "DOG" && pet.petType == "DOG") && (this.props.match.params.id == pet.shelterId || this.props.match.params.id == null)) return (
                                 <Col>
-                                    <Card style={{ width: '33rem', textAlign: "center", margin: "auto" }}>
+                                    <Card style={{ width: '25vw', textAlign: "center", margin: "auto" }}>
                                         <Card.Img variant="top" src={pet.picture} />
                                         <Card.Body style={{ margin: "auto" }}>
                                             <Card.Title style={{ color: "black" }}><h2>{pet.name}</h2></Card.Title>
